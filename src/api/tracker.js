@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: 'http://8142bcb4.ngrok.io',
+  baseURL: 'https://limitless-shore-49927.herokuapp.com',
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json'

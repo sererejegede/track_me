@@ -25,17 +25,23 @@ const AccountScreen = () => {
   };
 
   return (
-    <SafeAreaView forceInset={{ top: 'always' }}>
-      <View>
-        <Text h2>AccountScreen</Text>
-        <Text h4>{user.name}</Text>
-        <Button title="Sign out" onPress={signout} />
-        {/* <Button title="Test" onPress={getUserDetails} /> */}
-      </View>
-    </SafeAreaView>
+    // <SafeAreaView forceInset={{ top: 'always' }}>
+    <View style={styles.container}>
+      <Text h2>AccountScreen</Text>
+      <Text h4>{user.name}</Text>
+      <Button title="Sign out" onPress={signout} />
+      {/* <Button title="Test" onPress={getUserDetails} /> */}
+    </View>
+    // </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+});
 
 export default AccountScreen;
