@@ -1,6 +1,7 @@
 // import '../mockLocation';
 import React, { useState, useEffect, useContext } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Text, Input, Button } from 'react-native-elements';
 import { SafeAreaView } from 'react-navigation';
 import {
   requestPermissionsAsync,
@@ -10,6 +11,7 @@ import {
 } from 'expo-location';
 import Map from '../components/Map';
 import { Context as LocationContext } from '../context/LocationContext';
+import tracker from '../api/tracker';
 
 const TrackCreateScreen = () => {
   // Request for location services permission
@@ -21,8 +23,12 @@ const TrackCreateScreen = () => {
     getPosition();
     requestPermission();
   }, []);
+  const saveTrack = () => {
+    tracker.post('/track', {})
+  };
 
   const [err, setErr] = useState(null);
+  const [name, setName] = useState('');
   const { addLocation } = useContext(LocationContext);
   const requestPermission = async () => {
     try {
@@ -48,6 +54,14 @@ const TrackCreateScreen = () => {
       <Text>TrackCreateScreen</Text>
       <Map />
       {err ? <Text style={styles.error}>Please enable Location</Text> : null}
+      <View style={styles.form_container}>
+        <Input
+          placeholder="Name"
+          value={name}
+          onChangeText={setName}
+        />
+        <Button title="Save" onPress={saveTrack} buttonStyle={{marginTop: 10}}/>
+      </View>
     </SafeAreaView>
   );
 };
@@ -56,6 +70,10 @@ const styles = StyleSheet.create({
   error: {
     fontStyle: 'italic',
     color: '#EF1232'
+  },
+  form_container: {
+    padding: 10,
+    marginTop: 20
   }
 });
 

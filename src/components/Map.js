@@ -31,12 +31,11 @@ const Map = () => {
       >
         <Circle
           center={currentLocation}
-          radius={30}
+          radius={20}
           strokeColor="rgba(190, 10, 190, 1)"
           fillColor="rgba(190, 10, 190, 0.3)"
         />
       </MapView>
-      <Text>Map</Text>
     </View>
   );
 };
