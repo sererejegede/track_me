@@ -7,9 +7,8 @@ const Map = () => {
   const longitudeDelta = 0.01;
   const latitudeDelta = 0.01;
   const {
-    state: { currentLocation }
+    state: { currentLocation, locations }
   } = useContext(LocationContext);
-
   if (!currentLocation) {
     return <ActivityIndicator size="large" style={{ marginTop: 200 }} />;
   }
@@ -35,6 +34,7 @@ const Map = () => {
           strokeColor="rgba(190, 10, 190, 1)"
           fillColor="rgba(190, 10, 190, 0.3)"
         />
+        <Polyline coordinates={locations.map(location => location.coords)} />
       </MapView>
     </View>
   );

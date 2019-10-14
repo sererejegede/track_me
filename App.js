@@ -27,8 +27,6 @@ const switchNavigator = createSwitchNavigator({
     }),
     TrackCreate: TrackCreateScreen,
     Account: AccountScreen
-  }, {
-    initialRouteName: 'Account'
   })
 });
 
