@@ -13,6 +13,7 @@ instance.interceptors.request.use(
     async (config) => {
       const token = await AsyncStorage.getItem('auth_token');
       if (token) {
+        // eslint-disable-next-line no-param-reassign
         config.headers = {
           ...config.headers,
           Authorization: `Bearer ${token}`

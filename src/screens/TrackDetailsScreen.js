@@ -1,14 +1,21 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { SafeAreaView } from 'react-navigation'
+// import { View/* , StyleSheet */, Text } from 'react-native';
+import Map from '../components/Map'
 
-const TrackDetailsScreen = () => {
+const TrackDetailsScreen = ({ navigation }) => {
+  const track = navigation.getParam('track')
   return (
-    <View>
-      <Text>TrackDetailsScreen</Text>
-    </View>
+    <SafeAreaView forceInset={{ top: 'always' }}>
+      <Map
+        showDot={false}
+        locations={track.locations}
+      />
+    </SafeAreaView>
+
   );
 };
 
-const styles = StyleSheet.create({});
+// const styles = StyleSheet.create({});
 
 export default TrackDetailsScreen;

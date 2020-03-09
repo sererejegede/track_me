@@ -27,11 +27,18 @@ const AccountScreen = () => {
   return (
     // <SafeAreaView forceInset={{ top: 'always' }}>
     <View style={styles.container}>
-      {/*<Text h2>AccountScreen</Text>*/}
+      {/* <Text h2>AccountScreen</Text> */}
       <View style={styles.sub_container}>
-        <Image source={require('../../assets/dp.png')} containerStyle={styles.avatar}/>
+        <Image
+          // eslint-disable-next-line global-require
+          source={require('../../assets/dp.png')}
+          containerStyle={styles.avatar}
+        />
         <Text style={styles.userName}>{user.name}</Text>
-        <Button buttonStyle={styles.button} title="Sign out" onPress={signout}/>
+        <Button buttonStyle={styles.button}
+          title="Sign out"
+          onPress={signout}
+        />
       </View>
       {/* <Button title="Test" onPress={getUserDetails} /> */}
     </View>

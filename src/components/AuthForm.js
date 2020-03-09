@@ -8,7 +8,7 @@ const AuthForm = ({
   navigation,
   goTo,
   onSubmit,
-  err_msg,
+  errMsg,
   isSignUp,
   isLoading
 }) => {
@@ -56,7 +56,7 @@ const AuthForm = ({
       >
         <Text style={styles.link}>{littleText}</Text>
       </TouchableOpacity>
-      <Text style={styles.error}>{err_msg}</Text>
+      <Text style={styles.error}>{errMsg}</Text>
       <Button
         buttonStyle={styles.button}
         title="Submit"
